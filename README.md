@@ -48,6 +48,7 @@ As this is a free project, You can get my premium support for this project in fr
 
 > Contact me for getting support:<br>
 > code.with.aasheesh@gmail.com - Fast Reply (1-2 days)
+<br>
 > aasheeshsaumya@gmail.com - Slow Reply (30-60 days)
 
 ## Contributors
