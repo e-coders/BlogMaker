@@ -33,6 +33,10 @@ def readLines(name):
 	f.close()
 	linesconfig = c
 
+# Config ID
+def calcPostAdConfigID(value):
+	return int(f"{value}") + 25
+
 # Generate a readable date
 def generateToday():
 	time2 = datetime.datetime(2022,1,7)
@@ -73,6 +77,9 @@ little_desc = input("Type a little Description: ")
 desc = input("Type the content:\n\nTip: HTML supported! Use <BR> for line break, <p> for paragraph and <img> for images! ")
 # ID is the name
 ID = input("Enter the filename as the url will be refered: ")
+desc = input("Type the content:\n\nTip: HTML supported! Use <BR> for line break, <p> for paragraph and <img> for images!")
+# ID is the name
+ID = input("Enter the filename: ")
 # read and write the blog files.
 blog_full = readFile("site/blog-post.html")
 blog_full = blog_full.replace("[title]",title)
@@ -87,6 +94,7 @@ print("Rendering file succeed.")
 # Add the link to a post here.
 posts = readFile("site/index.html")    
 post_ad = f"<div class=&quot;col-md-10 col-lg-8&quot;><div class=&quot;post-preview&quot;><a href=&quot;[link]&quot;><h2 class=&quot;post-title&quot;>[title]</h2><h3 class=&quot;post-subtitle&quot;>[little-desc]</h3></a><p class=&quot;post-meta&quot;>Posted by&nbsp;<a href=&quot;#&quot;>{uname}</a> On [date]</p></div><hr></div><!--[ADS]-->"
+post_ad = f"<div class=&quot;col-md-10 col-lg-8&quot;><div class=&quot;post-preview&quot;><a href=&quot;[link]&quot;><h2 class=&quot;post-title&quot;>[title]</h2><h3 class=&quot;post-subtitle&quot;>[little-desc]</h3></a><p class=&quot;post-meta&quot;>Posted by&nbsp;<a href=&quot;#&quot;>{uname}</a></p></div><hr></div><!--[ADS]-->"
 post_ad = post_ad.replace("&quot;",'"')
 post_ad = post_ad.replace("[link]",str(ID) + ".html")
 post_ad = post_ad.replace("[date]",generateToday())
