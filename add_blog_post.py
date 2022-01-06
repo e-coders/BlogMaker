@@ -74,6 +74,8 @@ little_desc = input("Type a little Description: ")
 desc = input("Type the content:\n\nTip: HTML supported! Use <BR> for line break, <p> for paragraph and <img> for images! ")
 # ID is the name
 ID = input("Enter the filename as the url will be refered: ")
+# brand name is the org name shown on footer
+brand = input("Type brand name, which is shown in the footer near the registered years. ")
 
 # read and write the blog files.
 blog_full = readFile("site/blog-post.html")
@@ -82,6 +84,12 @@ blog_full = blog_full.replace("[little-des]",little_desc)
 blog_full = blog_full.replace("[content]",desc)
 blog_full = blog_full.replace("[date]",generateToday())
 blog_full = blog_full.replace("[author]",uname)
+todayyear = datetime.datetime(2022,5,1)
+todayyear = todayyear.today()
+todayyear = todayyear.year
+todayyear = str(todayyear) + "-" + str(todayyear + 1)
+blog_full = blog_full.replace("[year]",todayyear)
+blog_full = blog_full.replace("[brand]",brand)
 writeFile("site/" + ID + ".html",blog_full)
 blog_full = readFile("site/" + ID + ".html")
 blog_full = blog_full.replace("[document-title]",title)
@@ -93,6 +101,7 @@ if todaytime.hour >= 12:
 elif todaytime.hour <= 12:
 	todaytime2 = todaytime2 + " AM"
 blog_full = blog_full.replace('[time]',todaytime2)
+# with time attributes its latest version.
 writeFile("site/" + ID + ".html",blog_full)
 # Give the user a confirmation.
 print("Rendering file succeed.")
