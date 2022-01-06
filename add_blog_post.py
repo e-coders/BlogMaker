@@ -74,6 +74,7 @@ little_desc = input("Type a little Description: ")
 desc = input("Type the content:\n\nTip: HTML supported! Use <BR> for line break, <p> for paragraph and <img> for images! ")
 # ID is the name
 ID = input("Enter the filename as the url will be refered: ")
+
 # read and write the blog files.
 blog_full = readFile("site/blog-post.html")
 blog_full = blog_full.replace("[title]",title)
@@ -82,17 +83,30 @@ blog_full = blog_full.replace("[content]",desc)
 blog_full = blog_full.replace("[date]",generateToday())
 blog_full = blog_full.replace("[author]",uname)
 writeFile("site/" + ID + ".html",blog_full)
+blog_full = readFile("site/" + ID + ".html")
+blog_full = blog_full.replace("[document-title]",title)
+todaytime = datetime.datetime(2022,5,1)
+todaytime = todaytime.today()
+todaytime2 = str(todaytime.hour) + ":" + str(todaytime.minute)
+if todaytime.hour >= 12:
+	todaytime2 = todaytime2 + " PM"
+elif todaytime.hour <= 12:
+	todaytime2 = todaytime2 + " AM"
+blog_full = blog_full.replace('[time]',todaytime2)
+writeFile("site/" + ID + ".html",blog_full)
 # Give the user a confirmation.
 print("Rendering file succeed.")
 
 # Add the link to a post here.
 posts = readFile("site/index.html")    
-post_ad = f"<div class=&quot;col-md-10 col-lg-8&quot;><div class=&quot;post-preview&quot;><a href=&quot;[link]&quot;><h2 class=&quot;post-title&quot;>[title]</h2><h3 class=&quot;post-subtitle&quot;>[little-desc]</h3></a><p class=&quot;post-meta&quot;>Posted by&nbsp;<a href=&quot;#&quot;>{uname}</a> On [date]</p></div><hr></div>"
+post_ad = f"<div class=&quot;col-md-10 col-lg-8&quot;><div class=&quot;post-preview&quot;><a href=&quot;[link]&quot;><h2 class=&quot;post-title&quot;>[title]</h2><h3 class=&quot;post-subtitle&quot;>[little-desc]</h3></a><p class=&quot;post-meta&quot;>Posted by&nbsp;<a href=&quot;#&quot;>{uname}</a> On [date] at [time]</p></div><hr></div>"
 post_ad = post_ad.replace("&quot;",'"')
 post_ad = post_ad.replace("[link]",str(ID) + ".html")
 post_ad = post_ad.replace("[date]",generateToday())
 post_ad = post_ad.replace("[title]",title)
 post_ad = post_ad.replace("[little-desc]",little_desc)
+post_ad = post_ad.replace("[time]",todaytime2)
 posts = posts.replace("<!--[ADS]-->","<!--[ADS]-->" + str(post_ad))
+posts = posts.replace("<!--NO-->","\n")
 # Write the file
 writeFile("site/index.html",posts)
