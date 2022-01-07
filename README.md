@@ -2,6 +2,7 @@
 > ### by Aasheesh Agarwal & @somePythonProgrammer
 Its a blog maker, made by Aasheesh agarwal and @somePythonProgrammer using python! This have many functionallities! Lets Learn what are they!
 <br>
+
 > * Index
 > * <a href="#">What is this and usage</a>
 > * <a href="#">Setting up</a>
@@ -47,8 +48,7 @@ These are 2 files, that you can leave by default if you share the site folder.
 As this is a free project, You can get my premium support for this project in free!
 
 > Contact me for getting support:<br>
-> code.with.aasheesh@gmail.com - Fast Reply (1-2 days)
-<br>
+> code.with.aasheesh@gmail.com - Fast Reply (1-2 days)<br>
 > aasheeshsaumya@gmail.com - Slow Reply (30-60 days)
 
 ## Contributors
