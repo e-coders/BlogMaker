@@ -14,6 +14,7 @@ Its a blog maker, made by Aasheesh agarwal and @somePythonProgrammer using pytho
 ## What is this and usage
 Want to make your own blog in under 30-minutes? Just follow our easy steps and get your new blog ready in minute!<br>
 While I developed this full project in 8 hours (of 3 days). On the 3rd day, I finally added posts to posts index. So from the 3rd day, I got sucess! I also tried this 1 week ago to develop, But I got fail. I do my all full mind on this, And finally I seen @somePythonProgrammer's website. His blog theme is really awesome. I asked to him that can I add to my project, So he accepted, So the project is here! ;)<br>
+<br>For a sample, see my blog made using this same blog maker. e-coders.me/blog
 
 ## Setting up
 > **Warning: You must be have python installed to use this blog maker.**<br>
